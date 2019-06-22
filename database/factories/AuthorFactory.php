@@ -17,7 +17,7 @@ $factory->define(App\Nxb::class, function (Faker $faker) {
 });
 $factory->define(App\Book::class, function (Faker $faker) {
     return [
-        "book_name" => $faker->unique()->realText(150),
+        "book_name" => $faker->unique()->realText(50),
         "author_id" => $faker->randomFloat(0,1,100),
         "nxb_id" => $faker->randomFloat(0,1,100),
         "qty" => $faker->randomFloat(0,1,1000)

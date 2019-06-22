@@ -20,3 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/demo","HomeController@demo");
+
+Route::get("/book","BookController@BookList");
+
+Route::get("book/create","BookController@BookCreate");
+Route::post("book/create","BookController@BookSave");
