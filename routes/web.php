@@ -25,3 +25,8 @@ Route::get("/book","BookController@BookList");
 
 Route::get("book/create","BookController@BookCreate");
 Route::post("book/create","BookController@BookSave");
+
+Route::get("book/edit","BookController@BookEdit");
+Route::post("book/edit","BookController@BookUpdate");
+
+Route::get("book/delete/{book_id}","BookController@BookDelete");

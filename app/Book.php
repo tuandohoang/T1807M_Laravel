@@ -11,4 +11,6 @@ class Book extends Model
     protected $primaryKey = "book_id";
 
     protected $fillable = ["book_name","author_id","nxb_id","qty","active"];
+
+   // public $timestamps = false;
 }

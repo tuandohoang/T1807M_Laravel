@@ -57,4 +57,46 @@ class BookController extends Controller
         ])->save();
         return redirect("book");
     }
+
+    public function BookEdit(Request $request){
+        $id = $request->get("book_id");
+        $book = Book::find($id);
+        if($book){
+            $authors = Author::where("active",1)->orderBy("author_name","asc")
+                ->select(["author_id","author_name"])->get();
+            $nxbs = Nxb::where("active",1)->orderBy("nxb_name","asc")
+                ->select(["nxb_id","nxb_name"])->get();
+            return view("book.form_edit",compact("book","authors","nxbs"));
+        }
+        echo "Book not found";
+
+    }
+
+    public function BookUpdate(Request $request){
+        $this->validate($request,[
+            "book_name" => "required|min:6|max:100|unique:book,book_name,".$request->get("book_id").",book_id",
+            "author_id" => "required|numeric|min:1",
+            "nxb_id" => "required|numeric|min:1",
+            "qty" => "required|numeric|min:1",
+        ]);
+
+        $book =  Book::find($request->get("book_id"));
+        if($book){
+            $book->update([
+                "book_name"=> $request->get("book_name"),
+                "author_id"=> $request->get("author_id"),
+                "nxb_id"=> $request->get("nxb_id"),
+                "qty"=> $request->get("qty"),
+                "active"=> $request->get("active")
+            ]);
+            return redirect("book")->with("message","Update successfully");
+        }
+        return "Book not found";
+    }
+
+    public function BookDelete($book_id){
+        $book = Book::find($book_id);
+        $book->delete();
+        return redirect("book")->with("message","Delete book successfully");
+    }
 }
