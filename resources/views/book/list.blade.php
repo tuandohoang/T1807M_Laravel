@@ -29,7 +29,6 @@
         </thead>
         <tbody>
             @foreach($books as $book)
-                <?php dd($book->getAuthor);?>
             <tr>
                 <td>{{$book->book_id}}</td>
                 <td>{{$book->book_name}}</td>
