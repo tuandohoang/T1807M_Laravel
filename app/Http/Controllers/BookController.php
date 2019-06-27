@@ -10,9 +10,6 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     public function BookList(){
-        $book = Book::find(1);
-        dd($book->getUsers);
-
         // Lay tat ca
         //$books = Book::all();
 
