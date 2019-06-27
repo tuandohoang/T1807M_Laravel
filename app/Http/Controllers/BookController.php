@@ -28,8 +28,13 @@ class BookController extends Controller
 //            ->get();
 
         // Lay co phan trang
-        $books = Book::orderBy("qty","asc")
-                ->paginate(10);
+//        $books = Book::leftJoin("author","book.author_id","=","author.author_id")
+//                ->leftJoin("nxb","book.nxb_id","=","nxb.nxb_id")
+//                ->orderBy("qty","asc")
+//                ->select("book.*","author.author_name","nxb.nxb_name")
+//                ->paginate(10);
+
+        $books = Book::orderBy("qty","asc")->paginate(10);
 
         return view("book.list",compact("books"));
     }

@@ -29,10 +29,11 @@
         </thead>
         <tbody>
             @foreach($books as $book)
+                <?php dd($book->getAuthor);?>
             <tr>
                 <td>{{$book->book_id}}</td>
                 <td>{{$book->book_name}}</td>
-                <td>{{$book->author_id}}</td>
+                <td>{{$book->getAuthor->author_name}}</td>
                 <td>{{$book->nxb_id}}</td>
                 <td>{{$book->qty}}</td>
                 <td><a class="btn btn-warning" href="{{url("book/edit?book_id=".$book->book_id)}}">Edit</a> </td>

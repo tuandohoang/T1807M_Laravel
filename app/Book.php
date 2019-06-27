@@ -13,4 +13,8 @@ class Book extends Model
     protected $fillable = ["book_name","author_id","nxb_id","qty","active"];
 
    // public $timestamps = false;
+
+    public function getAuthor(){
+        return $this->belongsTo("App\Author","author_id","author_id");
+    }
 }

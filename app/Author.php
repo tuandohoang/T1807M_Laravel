@@ -11,4 +11,13 @@ class Author extends Model
     protected $primaryKey = "author_id";
 
     protected $fillable = ["author_name","active"];
+
+
+    public function getBooks(){
+        return $this->hasMany("App\Book","author_id","author_id");
+    }
+
+    public function getOneBook(){
+        return $this->hasOne("App\Book","author_id","author_id");
+    }
 }
