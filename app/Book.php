@@ -17,4 +17,8 @@ class Book extends Model
     public function getAuthor(){
         return $this->belongsTo("App\Author","author_id","author_id");
     }
+
+    public function getNxb(){
+        return $this->belongsTo("App\Nxb","nxb_id","nxb_id");
+    }
 }

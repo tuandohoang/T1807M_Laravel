@@ -23,3 +23,9 @@ $factory->define(App\Book::class, function (Faker $faker) {
         "qty" => $faker->randomFloat(0,1,1000)
     ];
 });
+$factory->define(App\Chap::class,function (Faker $faker){
+    return [
+        "chap_title"=> $faker->realText(100),
+        "book_id" => $faker->randomFloat(0,1,100),
+    ];
+});

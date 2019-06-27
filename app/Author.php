@@ -20,4 +20,8 @@ class Author extends Model
     public function getOneBook(){
         return $this->hasOne("App\Book","author_id","author_id");
     }
+
+    public function getChaps(){
+        return $this->hasManyThrough("App\Chap","App\Book","author_id","book_id","author_id","book_id");
+    }
 }
